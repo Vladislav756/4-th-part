@@ -1,6 +1,3 @@
-#include <iostream>
-
-
 void MemorySet(double *parr, int arr_length)
 {
     double *parr = new double[arr_length];
@@ -38,13 +35,23 @@ int main()
      
     std::cin >> arr_length;
 
-    MemorySet(parr, arr_length);
+    bool new_array;
 
-    FillArr(parr, arr_length);
+    do 
+    {
+        MemorySet(parr, arr_length);
 
-    ArrCout(parr, arr_length);
+        FillArr(parr, arr_length);
 
-    ArrMemoryDelete(parr);
+        ArrCout(parr, arr_length);
+
+        ArrMemoryDelete(parr);
+        
+        std::cout << "Try new array? 1 - yes, 0 - no \n";
+
+        std::cin >> new_array;
     
+    } 
+    while (new_array != 0);
+
     return 0;
-}
