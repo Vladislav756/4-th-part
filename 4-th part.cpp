@@ -1,9 +1,9 @@
-void MemorySet(double *parr, int arr_length)
+void MemorySet(double *&parr, int arr_length)
 {
-    double *parr = new double[arr_length];
+    double *(parr) = new double[arr_length];
 }
 
-void FillArr(double *parr, int arr_length)
+void FillArr(double *parr, int &arr_length)
 {
     for (int i = 0; i < arr_length; i++)
     {
@@ -11,7 +11,7 @@ void FillArr(double *parr, int arr_length)
     }
 }
 
-void ArrCout(double *parr, int arr_length)
+void ArrCout(double *parr, int &arr_length)
 {
     for (int i = 0; i < arr_length; i++)
     {
@@ -19,7 +19,7 @@ void ArrCout(double *parr, int arr_length)
     }
 }
 
-void ArrMemoryDelete(double *parr)
+void ArrMemoryDelete(double *&parr)
 {
     delete[] parr;
 }
@@ -27,7 +27,11 @@ void ArrMemoryDelete(double *parr)
 
 int main()
 {
-    double* parr;
+    const int SIZE = 1;
+
+    double arr[SIZE]{};
+
+    double* parr = arr;
 
     std::cout << "Insert array length \n";
 
@@ -39,7 +43,7 @@ int main()
 
     do 
     {
-        MemorySet(parr, arr_length);
+        MemorySet(*&parr, arr_length);
 
         FillArr(parr, arr_length);
 
@@ -55,3 +59,4 @@ int main()
     while (new_array != 0);
 
     return 0;
+}
