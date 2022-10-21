@@ -1,6 +1,6 @@
 void MemorySet(double *&parr, int arr_length)
 {
-    double *(parr) = new double[arr_length];
+    double (*parr) = new double[arr_length];
 }
 
 void FillArr(double *parr, int &arr_length)
