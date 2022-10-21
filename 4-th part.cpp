@@ -45,9 +45,9 @@ int main()
     {
         MemorySet(*&parr, arr_length);
 
-        FillArr(parr, arr_length);
+        FillArr(*&parr, arr_length);
 
-        ArrCout(parr, arr_length);
+        ArrCout(*&parr, arr_length);
 
         ArrMemoryDelete(parr);
         
