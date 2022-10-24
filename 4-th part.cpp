@@ -1,6 +1,9 @@
+#include <iostream>
+#include <stdlib.h>
+
 void MemorySet(double *&parr, int arr_length)
 {
-    double (*parr) = new double[arr_length];
+    parr = new double[arr_length];
 }
 
 void FillArr(double *parr, int &arr_length)
@@ -33,16 +36,17 @@ int main()
 
     double* parr = arr;
 
-    std::cout << "Insert array length \n";
-
-    int arr_length = 0;
-     
-    std::cin >> arr_length;
-
     bool new_array;
 
     do 
     {
+
+        std::cout << "Insert array length \n";
+
+        int arr_length = 0;
+
+        std::cin >> arr_length; 
+
         MemorySet(*&parr, arr_length);
 
         FillArr(*&parr, arr_length);
